@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+type: dataset
+title: "Council policies by area: section 19, EOTAS and alternative provision"
+abstract: >-
+  A reference dataset of what the 153 local authorities in England responsible for education
+  publish about education for children who cannot attend school: their section 19 or medical needs
+  policy, their EOTAS policy or guidance, what they publish about alternative provision, and the
+  free local SEND advice service for the area. It holds 612 entries, one for each of the four
+  kinds for each authority, each with the date it was checked. It records what each council
+  publishes as found on the dates shown; it does not describe what any policy says.
+authors:
+  - name: "James Wallace Education"
+version: "2026.10.10"
+date-released: "2026-10-09"
+license: "CC-BY-4.0"
+url: "https://blog.jameswallace.tech/councils/"
+keywords:
+  - section 19
+  - EOTAS
+  - education otherwise than at school
+  - alternative provision
+  - medical needs
+  - school attendance
+  - special educational needs and disabilities
+  - SEND
+  - local authority
+  - SENDIASS
+  - England

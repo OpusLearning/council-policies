@@ -1,0 +1,96 @@
+{
+  "profile": "data-package",
+  "name": "council-policies-section19-eotas-alternative-provision",
+  "title": "Council policies by area: section 19, EOTAS and alternative provision",
+  "description": "A reference dataset of what the 153 local authorities in England responsible for education publish about education for children who cannot attend school: the section 19 or medical needs policy, the EOTAS policy or guidance where one is published, what the council publishes about alternative provision, and the free local SEND advice service for the area. 612 entries, one for each of the four kinds for each authority, each with the date it was checked. It records what each council publishes as found on the dates shown; it does not describe what any policy says.",
+  "version": "2026.10.10",
+  "created": "2026-10-10",
+  "homepage": "https://blog.jameswallace.tech/councils/",
+  "licenses": [
+    {
+      "name": "CC-BY-4.0",
+      "title": "Creative Commons Attribution 4.0 International",
+      "path": "https://creativecommons.org/licenses/by/4.0/"
+    }
+  ],
+  "contributors": [
+    {"title": "James Wallace Education", "role": "author"}
+  ],
+  "sources": [
+    {
+      "title": "Council policies by area: section 19, EOTAS and alternative provision",
+      "path": "https://blog.jameswallace.tech/councils/"
+    }
+  ],
+  "keywords": [
+    "section 19",
+    "EOTAS",
+    "education otherwise than at school",
+    "alternative provision",
+    "medical needs",
+    "school attendance",
+    "special educational needs and disabilities",
+    "SEND",
+    "local authority",
+    "SENDIASS",
+    "England"
+  ],
+  "resources": [
+    {
+      "name": "council-policies",
+      "path": "data/council-policies.csv",
+      "profile": "tabular-data-resource",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "description": "The current list. The file begins with a UTF-8 BOM so spreadsheet software reads it correctly.",
+      "dialect": {"delimiter": ",", "header": true, "quoteChar": "\"", "doubleQuote": true, "lineTerminator": "\r\n"},
+      "schema": {
+        "fields": [
+          {"name": "council", "type": "string", "description": "The local authority's name, as it names itself. 153 distinct names."},
+          {"name": "ons_code", "type": "string", "description": "The Office for National Statistics code for the area, for example E06000015."},
+          {"name": "region", "type": "string", "description": "The grouping used on the page.", "constraints": {"enum": ["East Midlands and neighbours", "West Midlands", "Yorkshire and the Humber", "East of England", "London", "North East", "North West", "South East", "South West"]}},
+          {"name": "kind", "type": "string", "description": "Which of the four kinds of document the row records. One row for each kind for each council.", "constraints": {"enum": ["Section 19 / medical needs policy", "EOTAS policy or guidance", "Alternative provision", "Local SEND advice service"]}},
+          {"name": "status", "type": "string", "description": "Whether a document was found for this row.", "constraints": {"enum": ["found", "none found", "not checked yet"]}},
+          {"name": "title", "type": "string", "description": "The document's own title, as the council published it. Empty unless status is found."},
+          {"name": "url", "type": "string", "description": "The address of the document or page. Empty unless status is found."},
+          {"name": "document_date", "type": "string", "description": "The date shown on the document itself, or the council's last-updated date where the page carries one, copied as the council shows it. Empty when none."},
+          {"name": "date_checked", "type": "date", "description": "The date the row was last checked, YYYY-MM-DD."},
+          {"name": "how_checked", "type": "string", "description": "How the entry was checked.", "constraints": {"enum": ["checked by hand", "two separate checks agreed", "decided on a third check", "one check, on the council's own site", "not checked yet"]}},
+          {"name": "evidence", "type": "string", "description": "A short quotation from the source that shows why the row was recorded, with any email address removed. Usually empty."},
+          {"name": "consultation_contacted_on", "type": "string", "description": "The date the council or its advice service was asked about its entry. Empty when no contact has been made."},
+          {"name": "consultation_followed_up_on", "type": "string", "description": "The date of a follow-up contact. Empty when none."},
+          {"name": "consultation_replied_on", "type": "string", "description": "The date a reply was received. Empty when none."},
+          {"name": "consultation_outcome", "type": "string", "description": "Plain words for what came back. Empty when none."}
+        ],
+        "primaryKey": ["council", "kind"]
+      }
+    },
+    {
+      "name": "council-policies-json",
+      "path": "data/council-policies.json",
+      "profile": "tabular-data-resource",
+      "format": "json",
+      "mediatype": "application/json",
+      "description": "The current list as a JSON array of objects, one object per row, with the same columns as the CSV."
+    },
+    {
+      "name": "council-policies-2026-10-09",
+      "path": "data/council-policies-2026-10-09.csv",
+      "profile": "tabular-data-resource",
+      "format": "csv",
+      "mediatype": "text/csv",
+      "encoding": "utf-8",
+      "description": "The fixed copy as it stood when the 153 authorities were published on 9 October 2026, with the same columns as the current list.",
+      "dialect": {"delimiter": ",", "header": true, "quoteChar": "\"", "doubleQuote": true, "lineTerminator": "\r\n"}
+    },
+    {
+      "name": "council-policies-2026-10-09-json",
+      "path": "data/council-policies-2026-10-09.json",
+      "profile": "tabular-data-resource",
+      "format": "json",
+      "mediatype": "application/json",
+      "description": "The fixed copy as it stood when the 153 authorities were published on 9 October 2026, as JSON."
+    }
+  ]
+}
